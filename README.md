@@ -1,6 +1,7 @@
 # projects
 
 Here are some personal projects I've been working on.
+Will be adding an index page once I have a reasonable number of projects to display on it
 
 PaintCC:
 Site based on MS Paint
