@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PaintCC</title>
+  
+  <style>
+    
+    #canvas {
+      border: 1px solid #000;
+      /*float left for formatting*/
+      float: left;
+    }
+
+    .options-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      
+    }
+
+    .notes-container {
+      clear:left;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="800" height="600"></canvas>
+  <div class="options-container">
+    <div class="color-picker-container"></div>
+      <label for="colorPicker">Color:</label>
+      <input type="color" id="colorPicker" value="#000000">
+    </div>
+    <br>
+    <!-- Add brush selector here -->
+    <!-- Background stuff as well -->
+    <div class="button-group">
+      <button id="undoButton" class="undo-button">Undo</button>
+      <button id="clearButton">Clear</button>
+      <button id="saveButton">Save</button>
+    </div>
+  </div>
+  <!-- Notes section -->
+  <div class="notes-container">
+    <h3>Notes:</h3>
+    <ul>
+      <li>Select a color from the color picker on the top-right.</li>
+      <li>Use the left mouse button to draw on the canvas.</li>
+      <li>Undo button allows you to undo the last drawn line.</li>
+      <ul>You can also undo with [ctrl+z].</ul>
+      <li>Clear button clears the entire canvas.</li>
+      <li>Save button saves the canvas as an image.</li>
+      <li>To do:</li>
+      <ul>Different brushes</ul>
+      <ul>Background selector; right now canvas is transparent, not white</ul>
+      <ul>Add transparent texture</ul>
+      <ul>UI for tools other than the brush; Fill & Erase tools with working undo</ul>
+      <ul>Shapes tool with similar UI to the brush</ul>
+      <ul>Canvas size setter</ul>
+      <ul>Layers</ul>
+      <ul>Save previous color(s)</ul>
+    </ul>
+  </div>
+
+  <script src="PCCscript.js"></script>
+</body>
+</html>
