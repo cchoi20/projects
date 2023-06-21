@@ -10,6 +10,6 @@ For undo functionality, all strokes are saved in an array and the most recent is
 Features-to-come mentioned in the Notes section under the canvas. 
 
 Puzzle Game: WIP
-Get a randomized grid, depending on what difficulty you select. 
+Get a randomized grid, its size depending on what difficulty you select. 
 Clicking will 'flip' the square, along with surrounding 4 squares. 
 Goal is to get the whole grid flipped. 
