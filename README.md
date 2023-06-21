@@ -1,6 +1,6 @@
 # projects
 
-Here are some personal projects I've been working on.0
+Here are some personal projects I've been working on.
 Will add an index site when I have a reasonable amount to display.
 
 PaintCC: https://cchoi20.github.io/projects/PaintCC/PaintCC
