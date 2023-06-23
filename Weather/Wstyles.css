@@ -1,0 +1,47 @@
+body {
+    font-family: sans-serif;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+.weather-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+    width: 300px;
+    position: relative;
+}
+
+.weather-container .description-container {
+    display: flex;
+    justify-content: center; /* Center the contents horizontally */
+}
+
+.remove-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    border: none;
+    background-color: #555555;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#location {
+    font-weight: bold;
+}
+
+#temperature {
+    font-size: 24px;
+}
+
+#description {
+    color: #777;
+}
