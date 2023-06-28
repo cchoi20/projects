@@ -8,18 +8,51 @@ h1 {
     color: #333;
 }
 
-.weather-container {
+.main-container {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     margin: 20px auto;
-    width: 300px;
+    width: fit-content;
+    justify-content: center;
     position: relative;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+}
+
+.weather-container {
+    padding: 20px;
 }
 
 .weather-container .description-container {
     display: flex;
     justify-content: center; /* Center the contents horizontally */
+    
+}
+
+.wind-gust-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.air-quality-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#checkbox-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+#checkbox-container label {
+  display: block;
+  margin-bottom: 5px;
 }
 
 .remove-button {
