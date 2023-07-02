@@ -10,6 +10,7 @@ Displays location's temperature, time, and current weather.
 Allows for multiple tabs of weather to be opened. 
 Allows user to delete any unwanted tabs. 
 Displays error message if location not found. 
+Added extra options for Wind and Gust, Air Quality, and Visibility statistics
 
 PaintCC: https://cchoi20.github.io/projects/PaintCC/PaintCC
 Site based on MS Paint. 
