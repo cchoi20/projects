@@ -45,6 +45,13 @@ h1 {
     justify-content: center;
 }
 
+.visibility-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #checkbox-container {
   border: 1px solid #ccc;
   padding: 10px;
