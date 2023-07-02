@@ -6,11 +6,11 @@ window.addEventListener('load', function() {
   const checkbox1 = document.getElementById('checkbox1');
   const checkbox2 = document.getElementById('checkbox2');
   const checkbox3 = document.getElementById('checkbox3');
-
+  //const checkbox4 = document.getElementById('checkbox4');
   locationInput.value = '';
   checkbox1.checked = false;
   checkbox2.checked = false;
-  //checkbox3.checked = false;
+  checkbox3.checked = false;
   //checkbox4.checked = false;
 });
 
@@ -26,14 +26,10 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// Checkbox check
-const checkboxWind = document.getElementById('checkbox1');
-const checkboxAQI = document.getElementById('checkbox2');
-//const checkboxVisibility = document.getElementById('checkbox3');
 //const checkboxForecast = document.getElementById('checkbox4');
 let isCheckbox1Checked = false;
 let isCheckbox2Checked = false;
-//let isCheckbox3Checked = false;
+let isCheckbox3Checked = false;
 //let isCheckbox4Checked = false;
 checkbox1.addEventListener('change', function() {
   isCheckbox1Checked = checkbox1.checked;
@@ -41,7 +37,7 @@ checkbox1.addEventListener('change', function() {
 checkbox2.addEventListener('change', function() {
   isCheckbox2Checked = checkbox2.checked;
 });
-/*checkbox3.addEventListener('change', function() {
+checkbox3.addEventListener('change', function() {
   isCheckbox3Checked = checkbox3.checked;
 });
 /*checkbox4.addEventListener('change', function() {
@@ -132,6 +128,30 @@ function addWeatherContainer() {
     // Append to AQ container
     AQcontainer.appendChild(AQheader);
     AQcontainer.appendChild(aqtableElement);
+
+
+    // Create another container for VISIBILITY statistics                           VISIBILITY
+    const Vcontainer = document.createElement('div');
+    Vcontainer.className = 'visibility-container';
+    Vcontainer.style.borderLeft = '1px solid #ccc';
+
+    const Vheader = document.createElement('h2');
+    Vheader.textContent = 'Visibility';
+    const visibilityElement = document.createElement('p');
+    const cloudElement = document.createElement('p');
+    const humidityElement = document.createElement('p');
+    const uvElement = document.createElement('p');
+    uvElement.style.whiteSpace = "pre";                 // Line breaks for UV details
+    const precipElement = document.createElement('p');
+    const pressureElement = document.createElement('p');
+
+    Vcontainer.appendChild(Vheader);
+    Vcontainer.appendChild(visibilityElement);
+    Vcontainer.appendChild(cloudElement);
+    Vcontainer.appendChild(humidityElement);
+    Vcontainer.appendChild(uvElement);
+    Vcontainer.appendChild(precipElement);
+    Vcontainer.appendChild(pressureElement);
 
 
     // Create X button for user removal of containers                               X Button
@@ -271,7 +291,35 @@ function addWeatherContainer() {
                     row.appendChild(valueCell);
                     aqtableElement.appendChild(row);
                 }
-               
+            }
+            if(isCheckbox3Checked){
+                Maincontainer.appendChild(Vcontainer);
+
+                const precMM = data.current.precip_mm;
+                const precIN = data.current.precip_in;
+                const humidityData = data.current.humidity;
+                const cloudData = data.current.cloud;
+                const visKM = data.current.vis_km;
+                const visM = data.current.vis_miles;
+                const uvData = data.current.uv;
+                const pressureMB = data.current.pressure_mb;
+                const pressureIN = data.current.pressure_in;
+
+                // Set message according to UV index
+                const uvNum = parseFloat(uvData);
+                if(uvNum <= 2) uvElement.innerHTML = `<strong>Ultraviolet: ${uvData}, Minimal.</strong> \nApply SPF 15.`;
+                else if(uvNum <= 4) uvElement.innerHTML = `<strong>Ultraviolet: ${uvData}, Low.</strong> \nApply SPF 15+ and \nWear Protective Clothing/Hat. `;
+                else if(uvNum <= 6) uvElement.innerHTML = `<strong>Ultraviolet: ${uvData}, Moderate.</strong> \nApply SPF 30+ and \nWear Protective Clothing/Hat \nand Sunglasses. `;
+                else if(uvNum <= 9) uvElement.innerHTML = `<strong>Ultraviolet: ${uvData}, High.</strong> \nApply SPF 50 and \nWear Protective Clothing/Hat \nand Sunglasses. Seek Shade. `;
+                else if(uvNum >= 10)uvElement.innerHTML = `<strong>Ultraviolet: ${uvData}, Very High.</strong> \nApply SPF 50+ and \nWear Protective Clothing/Hat \nand Sunglasses. Avoid the Sun \nfrom 10AM-4PM. `;
+
+                // Set rest of elements' messages
+                visibilityElement.innerHTML = `<strong>Visibility:</strong> ${visKM} kilometers, ${visM} miles`;
+                cloudElement.innerHTML = `<strong>Clouds:</strong> ${cloudData}% of the sky`;
+                humidityElement.innerHTML = `<strong>Humidity:</strong> ${humidityData}%`;
+                precipElement.innerHTML = `<strong>Precipitation:</strong> ${precMM} mm, ${precIN} in`;
+                pressureElement.innerHTML = `<strong>Pressure:</strong> ${pressureMB} mb, ${pressureIN} in`;
+
             }
         })
         .catch(error => {
