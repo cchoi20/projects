@@ -1,4 +1,4 @@
-const apiKey = process.env.API_KEY;
+const apiKey = '54500096dc0f4839bcb170952232306';
 
 // Reset values when page is loaded
 window.addEventListener('load', function() {
