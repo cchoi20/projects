@@ -1,11 +1,4 @@
-fetch("/api/getApiKey")
-  .then((response) => response.text())
-  .then((key) => {
-    const apiKey = key;
-  })
-  .catch((error) => {
-    console.error("Error fetching API key:", error);
-  });
+const apiKey = '54500096dc0f4839bcb170952232306';
 
 
 // Reset values when page is loaded
