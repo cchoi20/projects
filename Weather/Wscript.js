@@ -1,4 +1,12 @@
-const apiKey = process.env.API_KEY;
+fetch("/api/getApiKey")
+  .then((response) => response.text())
+  .then((key) => {
+    const apiKey = key;
+  })
+  .catch((error) => {
+    console.error("Error fetching API key:", error);
+  });
+
 
 // Reset values when page is loaded
 window.addEventListener('load', function() {
