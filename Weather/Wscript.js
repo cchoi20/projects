@@ -1,4 +1,4 @@
-const apiKey = '54500096dc0f4839bcb170952232306';
+const apiKey = '1bf784c6557d48589d554852231307';
 
 
 // Reset values when page is loaded
